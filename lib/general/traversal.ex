@@ -8,10 +8,10 @@ defmodule General.Nav do
   defp left1(x), do: x + 1
   defp right1(x), do: x + 1
 
-  defp up2(coord), do: y - 2
-  defp down2(coord), do: y + 2
-  defp left2(coord), do: x - 2
-  defp right2(coord), do: x + 2
+  defp up2(y), do: y - 2
+  defp down2(y), do: y + 2
+  defp left2(x), do: x - 2
+  defp right2(x), do: x + 2
 
   def move([x, y], :slow, :n), do: [x, up1(y)]
   def move([x, y], :slow, :s), do: [x, down1(y)]
@@ -36,7 +36,7 @@ defmodule General.Nav do
       |> String.split("", trim: true)
       |> Enum.with_index()
       |> Enum.map(fn {char, x_idx} ->
-        if val == char do
+        if char_to_find == char do
           [x_idx, y_idx]
         else
           nil
